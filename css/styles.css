@@ -256,13 +256,11 @@ h6 { font-size: var(--fs-base); }
 
 /* Sello circular posicionado sobre la letra S */
 .navbar__logo-seal {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  top: 6px;
-  left: 1px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   pointer-events: none;
+  filter: brightness(0) invert(1);
 }
 
 /* --- Hamburger button — mobile --- */
