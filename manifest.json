@@ -1,0 +1,26 @@
+{
+  "name": "Sociedad Venezolana de Urología",
+  "short_name": "SVU",
+  "description": "Sociedad Venezolana de Urología — Agenda citas, conoce nuestros doctores y accede a servicios de salud urológica.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#F0C000",
+  "background_color": "#111111",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

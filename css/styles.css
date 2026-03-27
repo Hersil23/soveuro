@@ -1,0 +1,773 @@
+/* ========================================
+   SOCIEDAD VENEZOLANA DE UROLOGÍA — SVU
+   styles.css — Base, Reset, Variables, Tipografía
+   Mobile-first approach
+   ======================================== */
+
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  /* Colors */
+  --color-bg-light: #FFFFFF;
+  --color-bg-dark: #111111;
+  --color-accent: #F0C000;
+  --color-accent-dark: #C9A000;
+  --color-text-primary: #1A1A1A;
+  --color-text-light: #FFFFFF;
+  --color-text-muted: #666666;
+  --color-border: #E5E5E5;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Font sizes — fluid scale */
+  --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --fs-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --fs-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --fs-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  --fs-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --fs-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  --fs-3xl: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  --fs-4xl: clamp(2.5rem, 1.8rem + 3.5vw, 4rem);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-padding: 1rem;
+  --navbar-height: 4rem;
+
+  /* Borders */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  /* Transitions */
+  --transition-base: 0.3s ease-in-out;
+}
+
+/* ========== CSS RESET ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ========== UTILITY — CONTAINER ========== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ========== UTILITY — SCREEN READER ONLY ========== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1 { font-size: var(--fs-4xl); }
+h2 { font-size: var(--fs-3xl); }
+h3 { font-size: var(--fs-2xl); }
+h4 { font-size: var(--fs-xl); }
+h5 { font-size: var(--fs-lg); }
+h6 { font-size: var(--fs-base); }
+
+/* ========== BUTTONS ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  line-height: 1;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  transform: scale(1.03);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+.btn--secondary:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.btn--outline:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn--register {
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+}
+
+.btn--register:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-accent);
+  border-color: var(--color-text-primary);
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to left, #797672 0%, #000000 100%);
+  z-index: 1000;
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  min-height: 64px;
+}
+
+/* --- Logo tipográfico SVU --- */
+.navbar__logo-wrapper {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.navbar__logo-text {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  letter-spacing: -2px;
+  line-height: 1;
+  display: block;
+}
+
+/* Sello circular posicionado sobre la letra S */
+.navbar__logo-seal {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 6px;
+  left: 1px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* --- Hamburger button — mobile --- */
+.navbar__hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-sm);
+}
+
+.navbar__hamburger-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-light);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+  transform-origin: center;
+}
+
+/* Hamburger → X animation (CSS only, triggered by .nav-open on .navbar) */
+.navbar.nav-open .navbar__hamburger-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar.nav-open .navbar__hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar.nav-open .navbar__hamburger-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Nav links — mobile: hidden column, dark bg --- */
+.navbar__links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg-dark);
+  padding: 0 var(--container-padding);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease-in-out,
+              opacity var(--transition-base);
+}
+
+/* Open state — mobile menu slide-down */
+.navbar.nav-open .navbar__links {
+  max-height: 20rem;
+  opacity: 1;
+}
+
+/* Mobile link style: white text, bottom border */
+.navbar__link {
+  display: block;
+  padding: 16px 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-light);
+  border-bottom: 1px solid #333333;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.navbar__link:hover {
+  opacity: 0.75;
+}
+
+/* --- CTA "Inicia Sesión" — mobile: at end of menu, accent color --- */
+.navbar__cta {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-text-light);
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-right: auto;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar__cta:hover {
+  color: var(--color-accent);
+}
+
+/* Mobile CTA — shown inside open menu */
+.navbar.nav-open .navbar__cta {
+  display: block;
+  color: var(--color-accent);
+  padding: 16px 0;
+}
+
+/* ========== HERO ========== */
+
+/* --- Hero wrapper --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-block: 0;
+}
+
+/* --- Capa 2: imagen de fondo desenfocada --- */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/assets/images/hero-bg.jpg') center / cover no-repeat;
+  filter: blur(2px) brightness(0.35);
+}
+
+/* --- Capa 3: overlay degradado diagonal --- */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(30, 30, 30, 0.80) 40%,
+    rgba(58, 58, 58, 0.50) 70%,
+    rgba(0, 0, 0, 0.20) 100%
+  );
+}
+
+/* --- Capa 4: overlay lateral para integrar doctor --- */
+.hero__overlay-lateral {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.90) 0%,
+    rgba(0, 0, 0, 0.60) 45%,
+    rgba(0, 0, 0, 0.10) 75%,
+    rgba(0, 0, 0, 0.00) 100%
+  );
+}
+
+/* --- Contenido principal --- */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+/* --- Columna izquierda --- */
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* --- Logo hero grande --- */
+.hero__logo-wrapper {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.hero__logo-text {
+  font-family: var(--font-display);
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  letter-spacing: -4px;
+  line-height: 1;
+  display: block;
+}
+
+.hero__logo-seal {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  top: 10px;
+  left: 2px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* --- Título --- */
+.hero__title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  line-height: 1.15;
+  margin: 0 0 24px;
+}
+
+/* --- Subtítulo --- */
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 0 40px;
+}
+
+/* --- Botones --- */
+.hero__buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero__btn-primary {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-bg-dark);
+  background: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  border-radius: 50px;
+  padding: 16px 36px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.hero__btn-primary:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  transform: scale(1.03);
+}
+
+.hero__btn-secondary {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  background: transparent;
+  border: 2px solid var(--color-text-light);
+  border-radius: 50px;
+  padding: 16px 36px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.hero__btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* --- Imagen doctor — mobile: debajo del contenido --- */
+.hero__doctor {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  max-width: 400px;
+  margin: 40px auto 0;
+  object-fit: contain;
+}
+
+/* --- Stats bar --- */
+.hero__stats {
+  background: var(--color-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 24px;
+  position: relative;
+  z-index: 3;
+}
+
+.hero__stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero__stat-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-bg-dark);
+}
+
+.hero__stat-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-bg-dark);
+  text-align: center;
+}
+
+/* Dividers — hidden in mobile column layout */
+.hero__stat-divider {
+  display: none;
+}
+
+/* ========== SECTION BASE ========== */
+section {
+  padding-block: var(--space-3xl);
+}
+
+/* Dark sections */
+.doctores,
+.zoriak {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+/* Main offset for fixed navbar (matches mobile min-height) */
+main {
+  margin-top: 64px;
+}
+
+/* ========== FOOTER BASE ========== */
+.footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding-block: var(--space-3xl);
+}
+
+/* ========== RESPONSIVE — sm: 640px ========== */
+@media (min-width: 640px) {
+  :root {
+    --container-padding: 1.5rem;
+  }
+}
+
+/* ========== RESPONSIVE — md: 768px ========== */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 2rem;
+  }
+
+  /* Navbar desktop layout */
+  .navbar__hamburger {
+    display: none;
+  }
+
+  /* Main offset — matches desktop navbar min-height */
+  main {
+    margin-top: 80px;
+  }
+
+  /* Navbar desktop — taller */
+  .navbar__container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 80px;
+  }
+
+  /* Logo desktop — larger */
+  .navbar__logo-text {
+    font-size: 58px;
+  }
+
+  .navbar__logo-seal {
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    left: 1px;
+  }
+
+  /* Links container — rounded rect, NOT pill */
+  .navbar__links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    max-height: none;
+    opacity: 1;
+    overflow: visible;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 36px;
+    gap: 36px;
+  }
+
+  /* Desktop link style — dark text inside container, no border */
+  .navbar__link {
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-bg-dark);
+    border-bottom: none;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .navbar__link:hover {
+    opacity: 0.75;
+  }
+
+  /* CTA — visible as plain white text, pulled slightly left */
+  .navbar__cta {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-light);
+    font-size: 18px;
+    margin-right: 2rem;
+  }
+
+  /* Reset mobile .nav-open CTA override for desktop */
+  .navbar.nav-open .navbar__cta {
+    color: var(--color-text-light);
+    padding: 0;
+  }
+
+  /* --- Hero desktop --- */
+  .hero__content {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+
+  .hero__left {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  /* Logo hero — desktop size */
+  .hero__logo-text {
+    font-size: 140px;
+  }
+
+  .hero__logo-seal {
+    width: 72px;
+    height: 72px;
+    top: 18px;
+    left: 4px;
+  }
+
+  /* Título desktop */
+  .hero__title {
+    font-size: 52px;
+  }
+
+  /* Subtítulo desktop */
+  .hero__subtitle {
+    font-size: 18px;
+  }
+
+  /* Doctor — absolute positioned, right side */
+  .hero__doctor {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: 90%;
+    max-width: 45%;
+    margin: 0;
+    object-position: bottom right;
+  }
+
+  /* Stats bar — horizontal row */
+  .hero__stats {
+    flex-direction: row;
+    gap: 0;
+    padding: 24px 40px;
+  }
+
+  .hero__stat-item {
+    flex: 1;
+  }
+
+  .hero__stat-divider {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ========== RESPONSIVE — lg: 1024px ========== */
+@media (min-width: 1024px) {
+  section {
+    padding-block: var(--space-4xl);
+  }
+}
+
+/* ========== RESPONSIVE — xl: 1280px ========== */
+@media (min-width: 1280px) {
+  :root {
+    --container-padding: 2rem;
+  }
+}
