@@ -530,10 +530,11 @@ h6 { font-size: var(--fs-base); }
 }
 
 .hero__stat-number {
-  font-family: var(--font-display);
-  font-size: 32px;
+  font-family: var(--font-body);
+  font-size: 36px;
   font-weight: 700;
   color: var(--color-bg-dark);
+  letter-spacing: -1px;
 }
 
 .hero__stat-label {
