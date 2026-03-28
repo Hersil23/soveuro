@@ -30,16 +30,16 @@
   <meta name="twitter:image" content="https://soveuro.com/assets/images/og-image.jpg">
 
   <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#F0C000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="SVU">
-  <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +47,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -81,8 +81,8 @@
   <header class="navbar" id="navbar">
     <nav class="navbar__container container" aria-label="Navegación principal">
 
-      <a href="/" class="navbar__logo" aria-label="SVU - Inicio">
-        <img src="/assets/images/logo-svu.png" alt="SVU" class="navbar__logo-seal" width="143" height="143">
+      <a href="./" class="navbar__logo" aria-label="SVU - Inicio">
+        <img src="assets/images/logo-svu.png" alt="SVU" class="navbar__logo-seal" width="143" height="143">
       </a>
 
       <!-- Hamburger — mobile only -->
@@ -128,7 +128,7 @@
         <div class="hero__left">
 
           <!-- Logo hero -->
-          <img src="/assets/images/logo-svu.png" alt="SVU" class="hero__logo-seal">
+          <img src="assets/images/logo-svu.png" alt="SVU" class="hero__logo-seal">
 
           <h1 class="hero__title">Sociedad<br>Venezolana de Urología</h1>
 
@@ -142,7 +142,7 @@
         </div>
 
         <!-- Columna derecha: doctor -->
-        <img src="/assets/images/doctor-1.png" alt="Doctor especialista en urología" class="hero__doctor">
+        <img src="assets/images/doctor-1.png" alt="Doctor especialista en urología" class="hero__doctor">
 
       </div>
 
@@ -177,7 +177,7 @@
           <!-- Columna izquierda: imagen con marco decorativo -->
           <div class="historia__image-wrapper">
             <div class="historia__image-frame" aria-hidden="true"></div>
-            <img src="/assets/images/doctor-historia.png" alt="Doctor de la Sociedad Venezolana de Urología" class="historia__image">
+            <img src="assets/images/doctor-historia.png" alt="Doctor de la Sociedad Venezolana de Urología" class="historia__image">
           </div>
 
           <!-- Columna derecha: texto -->
@@ -223,7 +223,7 @@
 
           <!-- Foto del edificio -->
           <div class="ubicacion__image-wrapper">
-            <img src="/assets/images/edificio-sede.png" alt="Edificio Mene Grande, sede de la Sociedad Venezolana de Urología" class="ubicacion__image">
+            <img src="assets/images/edificio-sede.png" alt="Edificio Mene Grande, sede de la Sociedad Venezolana de Urología" class="ubicacion__image">
           </div>
 
           <!-- Google Maps embed -->
@@ -264,13 +264,13 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/js/main.js" defer></script>
+  <script src="js/main.js" defer></script>
 
   <!-- Service Worker Registration -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('sw.js')
           .then(reg => console.log('SW registrado:', reg.scope))
           .catch(err => console.error('SW error:', err));
       });

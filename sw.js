@@ -7,11 +7,11 @@
 
 const CACHE_NAME = 'svu-cache-v1';
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/main.js',
-  '/manifest.json'
+  './',
+  'index.html',
+  'css/styles.css',
+  'js/main.js',
+  'manifest.json'
 ];
 
 /* --- Install: pre-cache static assets --- */
@@ -86,7 +86,7 @@ function offlineFallback() {
 <body>
   <div>
     <h1>Sin conexión</h1>
-    <p>No pudimos cargar esta página. Verifica tu conexión a internet e <a href="/">intenta de nuevo</a>.</p>
+    <p>No pudimos cargar esta página. Verifica tu conexión a internet e <a href="./">intenta de nuevo</a>.</p>
   </div>
 </body>
 </html>`,
