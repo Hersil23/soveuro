@@ -666,6 +666,138 @@ h6 { font-size: var(--fs-base); }
   transform: scale(1.03);
 }
 
+/* ========== ZORIAK ========== */
+
+.zoriak {
+  background-color: var(--color-bg-light) !important;
+  color: var(--color-text-primary) !important;
+  padding: 0 !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Banner verde */
+.zoriak__banner {
+  background: #7AC142;
+  padding: var(--space-3xl) 0;
+  text-align: center;
+}
+
+.zoriak__title {
+  font-family: var(--font-body);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: var(--space-md);
+}
+
+.zoriak__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Líneas terapéuticas */
+.zoriak__lines {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: var(--space-3xl) 0;
+  background: #f5f5f5;
+}
+
+.zoriak__lines-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.zoriak__lines-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto var(--space-2xl);
+  line-height: 1.7;
+}
+
+.zoriak__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.zoriak__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.zoriak__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: transform 0.3s ease;
+}
+
+.zoriak__icon:hover {
+  transform: scale(1.1);
+}
+
+.zoriak__icon--green  { background: #7AC142; }
+.zoriak__icon--gray   { background: #B0B0B0; }
+.zoriak__icon--teal   { background: #00B4C5; }
+.zoriak__icon--orange { background: #F58220; }
+.zoriak__icon--red    { background: #E2253A; }
+.zoriak__icon--navy   { background: #1B2A4A; }
+
+.zoriak__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.zoriak__cta-wrapper {
+  text-align: center;
+}
+
+.zoriak__btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #7AC142;
+  border-radius: 50px;
+  padding: 14px 36px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.zoriak__btn:hover {
+  background: #5fa832;
+  transform: scale(1.03);
+}
+
 /* ========== UBICACIÓN ========== */
 
 .ubicacion {
@@ -741,7 +873,6 @@ section {
 
 /* Collapse placeholder sections that have no visible content */
 .doctores:not(:has(> .container)),
-.zoriak:not(:has(> .container)),
 .reviews:not(:has(> .container)),
 .citas:not(:has(> .container)),
 .app:not(:has(> .container)),
@@ -752,8 +883,7 @@ section {
 }
 
 /* Dark sections */
-.doctores,
-.zoriak {
+.doctores {
   background-color: var(--color-bg-dark);
   color: var(--color-text-light);
 }
@@ -1027,6 +1157,22 @@ main {
     object-position: bottom right;
   }
 
+  /* --- Zoriak desktop (768px+) --- */
+  .zoriak__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+  }
+
+  .zoriak__icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .zoriak__icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
   /* --- Footer desktop (768px+) --- */
   .footer__grid {
     flex-direction: row;
@@ -1106,6 +1252,10 @@ main {
 @media (min-width: 1024px) {
   section {
     padding-block: var(--space-4xl);
+  }
+
+  .zoriak__grid {
+    grid-template-columns: repeat(6, 1fr);
   }
 
   .historia__image-frame {
