@@ -112,5 +112,25 @@
     });
 
     window.addEventListener('resize', updateCarousel);
+
+    // Auto-advance every 4 seconds
+    let autoPlay = setInterval(() => {
+      const visibleCount = getVisibleCount();
+      currentIndex++;
+      if (currentIndex > totalCards - visibleCount) currentIndex = 0;
+      updateCarousel();
+    }, 4000);
+
+    // Pause on hover, resume on leave
+    const carousel = document.querySelector('.reviews__carousel-wrapper');
+    carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+    carousel.addEventListener('mouseleave', () => {
+      autoPlay = setInterval(() => {
+        const visibleCount = getVisibleCount();
+        currentIndex++;
+        if (currentIndex > totalCards - visibleCount) currentIndex = 0;
+        updateCarousel();
+      }, 4000);
+    });
   }
 })();
