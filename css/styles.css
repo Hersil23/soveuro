@@ -666,6 +666,163 @@ h6 { font-size: var(--fs-base); }
   transform: scale(1.03);
 }
 
+/* ========== GOOGLE REVIEWS ========== */
+
+.reviews {
+  background-color: var(--color-bg-light) !important;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-3xl) !important;
+}
+
+.reviews__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+/* Sidebar */
+.reviews__sidebar {
+  text-align: center;
+}
+
+.reviews__rating-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.reviews__stars {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: var(--space-sm);
+}
+
+.reviews__count {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.reviews__google-logo {
+  margin: 0 auto;
+}
+
+/* Carousel wrapper */
+.reviews__carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 800px;
+}
+
+.reviews__carousel {
+  flex: 1;
+  overflow: hidden;
+}
+
+.reviews__track {
+  display: flex;
+  gap: var(--space-md);
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Cards */
+.reviews__card {
+  flex: 0 0 100%;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  min-width: 0;
+}
+
+.reviews__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.reviews__card-g {
+  flex-shrink: 0;
+}
+
+.reviews__card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews__card-info strong {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-text-primary);
+}
+
+.reviews__card-info span {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.reviews__card-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #4285F4;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.reviews__card-stars {
+  display: flex;
+  gap: 1px;
+  margin-bottom: var(--space-sm);
+}
+
+.reviews__card-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+/* Arrows */
+.reviews__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+}
+
+.reviews__arrow:hover {
+  border-color: var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
 /* ========== ZORIAK ========== */
 
 .zoriak {
@@ -682,6 +839,20 @@ h6 { font-size: var(--fs-base); }
   background: #7AC142;
   padding: var(--space-3xl) 0;
   text-align: center;
+}
+
+.zoriak__sponsor-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: #7AC142;
+  background: #FFFFFF;
+  padding: 6px 20px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-md);
 }
 
 .zoriak__title {
@@ -873,7 +1044,6 @@ section {
 
 /* Collapse placeholder sections that have no visible content */
 .doctores:not(:has(> .container)),
-.reviews:not(:has(> .container)),
 .citas:not(:has(> .container)),
 .app:not(:has(> .container)),
 .recursos:not(:has(> .container)) {
@@ -1155,6 +1325,33 @@ main {
     max-width: 45%;
     margin: 0;
     object-position: bottom right;
+  }
+
+  /* --- Reviews desktop (768px+) --- */
+  .reviews__container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .reviews__sidebar {
+    flex: 0 0 200px;
+    text-align: left;
+  }
+
+  .reviews__stars {
+    justify-content: flex-start;
+  }
+
+  .reviews__google-logo {
+    margin: 0;
+  }
+
+  .reviews__carousel-wrapper {
+    flex: 1;
+  }
+
+  .reviews__card {
+    flex: 0 0 calc(50% - 8px);
   }
 
   /* --- Zoriak desktop (768px+) --- */

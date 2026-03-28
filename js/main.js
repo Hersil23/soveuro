@@ -71,4 +71,46 @@
 
     observer.observe(statsBar);
   }
+
+  /* --- Reviews carousel --- */
+  const track = document.querySelector('.reviews__track');
+  const prevBtn = document.querySelector('.reviews__arrow--prev');
+  const nextBtn = document.querySelector('.reviews__arrow--next');
+
+  if (track && prevBtn && nextBtn) {
+    let currentIndex = 0;
+    const cards = track.querySelectorAll('.reviews__card');
+    const totalCards = cards.length;
+
+    const getVisibleCount = () => window.innerWidth >= 768 ? 2 : 1;
+
+    const updateCarousel = () => {
+      const visibleCount = getVisibleCount();
+      const maxIndex = totalCards - visibleCount;
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      if (currentIndex < 0) currentIndex = 0;
+
+      const card = cards[0];
+      const gap = 16;
+      const cardWidth = card.offsetWidth + gap;
+      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    };
+
+    nextBtn.addEventListener('click', () => {
+      const visibleCount = getVisibleCount();
+      if (currentIndex < totalCards - visibleCount) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    window.addEventListener('resize', updateCarousel);
+  }
 })();
